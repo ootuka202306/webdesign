@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <!-- ビューポート設定 ↓ 最初の「！！！」付けた時に表示されている-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>WebDesign</title>
+    <!-- titleタグの下にファビコンを入れる -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="css/reset.css">
+    <!--1. cssとHTMLをリンクさせる為、にタイトルの下にlink先を付ける 2.最初から余白などが設定させているので、設定を解除するのにリンク先をcss/rese.cssをリンク先につける-->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body id="top">
+    <div class="container">
+        <!-- ◆div:ここからここまでグループ、初期設定したい時、◎ここからここまでの背景カラー設定など。。※divに名前をつける -->
+        <!-- headerはサイト共有の上部エリア -->
+        <header>
+            <!-- サイト名は大見出しh1を設定する 入力する時は、<>を先に入力してからh1　◆メモ：ctrl+/でサイトに表示されない -->
+            <h1><a href="index.html">WebDesign</a></h1>
+            <!-- メニューはul-liがセット　改行はバラバラになっていたらctrl+sで整形してくれる -->
+            <!-- 似た文章はul-liを使う→（単発なもの）◆順番が決まっているものはol-liを使う※例：レシピやランキングなど -->
+            <!-- navタグ=主要なメニュー -->
+        </header>
+        <nav>
+            <ul>
+                <!-- ◆ホームを選択したら、HPに戻るようにする為、14行目HOMEを挟んでラップする→◆Ait+Wした後に aを入力、“”の中に画像を入れ、なければ＃◆検索：ctel+スペース-->
+                <!-- ◆下層ページを作成する、リンク先を入力 -->
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="next.html">下層ページの構成</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </nav>
+
+        <!-- ［メインビジュアル］ -->
+        <!-- imgを入力するときは、<>は入れない ◆画像を入れるときは、ctrl+スペースでimgを選択して、画像を選ぶ 画像に意味をつけるが分からなかったら、pをつける-->
+        <p class="visual"><img src="img/web.jpg" alt="Webページ制作言語"></p>
+        <!-- main各ページで異なるエリア -->
+        <main>
+            <!-- 1文をまとめて入力終わらせるときは、文章を選択してからalt+wで上に何を入力するか表示されるのでpを入力する（pは段落の意味）-->
+            <!-- ctrl+wで終了　終了してしまったら、左のindex.himlを選択すると表示される -->
+            <!-- section：見出しとその内容のグループ-->
+            <section>
+                <h2>TOPページの見出し</h2>
+                <p>TOPページの大見出し（h1）はサイト名に設定するので、mainタグ内は中見出し（h2）から使い始める。</p>
+            </section>
+            <section>
+                <h2>セクションとは</h2>
+                <p>見出しとその内容は、sectionタグでグループ化する。小見出しがある場合、中見出し（h2）のsectionの中に小見出し（h3）のsectionが入ることもある。</p>
+            </section>
+            <aside>
+                <p>バナーや注意書き、サイドバーなどの補足情報はasideで囲む。</p>
+            </aside>
+        </main>
+    </div>
+
+    <!-- ×インラインの中にブロックは入れてはいけない。◆small：インライン　◆p：ブロック -->
+    <!-- smallタグ=著作権情報 -->
+    <!--footer サイト共有の下部エリア -->
+    <footer>
+        <!-- ©は特殊記号が含まれているテキストを選択して右クリックでコマンドパレット→htmlを入力して表示されたものを選択すると変更してくれる-->
+        <p class="pagetop"><a href="#top"><img src="img/gotop.svg" width="32" alt="ページトップへ"></a></p>
+        <p class="copyright">
+            <small>
+                &copy;2021 WebDesign.
+                <span>All Rights Reserved.</span>
+            </small>
+        </p>
+    </footer>
+</body>
+</html>

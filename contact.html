@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>お問い合わせ - WebDesign</title>
+    <!-- titleタグの下にファビコンを入れる -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="css/reset.css">
+    <!--1. cssとHTMLをリンクさせる為、にタイトルの下にlink先を付ける 2.最初から余白などが設定させているので、設定を解除するのにリンク先をcss/rese.cssをリンク先につける-->
+    <link rel="stylesheet" href="css/contact.css">
+    <!-- リンク先を【css/next.css 】に変更する-->
+</head>
+<body id="top">
+    <div class="container">
+        <!-- ◆div:ここからここまでグループ、初期設定したい時、◎ここからここまでの背景カラー設定など。。※divに名前をつける -->
+        <!-- headerはサイト共有の上部エリア -->
+        <header>
+            <!-- サイト名は大見出しh1を設定する 入力する時は、<>を先に入力してからh1　◆メモ：ctrl+/でサイトに表示されない -->
+            <h1><a href="index.html">WebDesign</a></h1>
+            <!-- メニューはul-liがセット 改行はバラバラになっていたらctrl+sで整形する -->
+            <!-- 似た文章はul-liを使う→（単発なもの）◆順番が決まっているものはol-liを使う※例：レシピやランキングなど -->
+            <!-- navタグ=主要なメニュー -->
+        </header>
+        <!-- ◆スティッキー -->
+        <nav>
+            <ul>
+                <!-- ◆ホームを選択したら、HPに戻るようにする為、14行目HOMEを挟んでラップする→◆Ait+Wした後に aを入力、“”の中に画像を入れ、なければ＃◆検索：ctel+スペース-->
+                <!-- ◆下層ページを作成する、リンク先を入力 -->
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="next.html">下層ページの構成</a></li>
+                <li><a href="contact.html" class="active">お問い合わせ</a></li>
+            </ul>
+        </nav>
+        <!-- main各ページで異なるエリア -->
+        <main>
+            <article>
+                <!-- 記事の大見出し -->
+                <h1>お問い合わせ</h1>
+                <p>WebDesignについてのご質問・ご意見は、下記フォームよりお気軽にお問い合わせください。</p>
+                <aside>
+                    <!-- ↓注意事項・補足タグ -->
+                    <ul>
+                        <li>必要事項を記入し、「送信」をクリックしてください。</li>
+                        <li>ご登録いただいた個人情報は、お問い合わせ内容の確認以外には使用いたしません。</li>
+                        <li>※は必須項目です。</li>
+                    </ul>
+                </aside>
+                <form action="#" method="post">
+                    <dl>
+                        <div>
+                            <dt> お名前<span>※</span></dt>
+                            <dd> <input type="text" placeholder="ウェブデザ　花子" required></dd>
+                        </div>
+                        <div>
+                            <dt>メールアドレス<span>※</span></dt>
+                            <dd> <input type="email" placeholder="info@gmail.com"></dd>
+                        </div>
+                        <div>
+                            <dt>お問い合わせの種類</dt>
+                            <dd>
+                                <label>
+                                    <!-- ↑文字まで反応させる【label】-->
+                                    <!-- ↓ボタン選択の場合、名前属性をつける：category -->
+                                    <!-- ※checked:開いた時点でご質問にチェックが入っている -->
+                                    <input type="radio" name="category" checked>
+                                    ご質問
+                                </label>
+                                <label>
+                                    <input type="radio" name="category">
+                                    お問い合わせ
+                                </label>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>内容</dt>
+                            <dd><textarea></textarea></dd>
+                        </div>
+                    </dl>
+                    <p><button>送信</button></p>
+                </form>
+            </article>
+        </main>
+    </div>
+
+    <!-- ×インラインの中にブロックは入れてはいけない。◆small：インライン　◆p：ブロック -->
+    <!-- smallタグ=著作権情報 -->
+    <!--footer サイト共有の下部エリア -->
+    <footer>
+        <!-- ◆矢印をクリック（img/gotop.svg）を入れる方法 -->
+        <!-- 同じページ内でリンクする方法：idを作れば可能　 -->
+        <p class="pagetop"><a href="#top"><img src="img/gotop.svg" width="32" alt="ページトップへ"></a></p>
+        <!-- ©は特殊記号が含まれているテキストを選択して右クリックでコマンドパレット→htmlを入力して表示されたものを選択すると変更してくれる-->
+        <p class="copyright">
+            <small>
+                &copy;2021 WebDesign.
+                <span>All Rights Reserved.</span>
+            </small>
+        </p>
+    </footer>
+</body>
+</html>

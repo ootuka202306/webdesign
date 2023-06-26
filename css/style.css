@@ -1,0 +1,143 @@
+/*［bodyの書式］文字色:濃いグレー、文字サイズ:16px、書体:游ゴシック体、背景色:ベージュ */
+body {
+  /* テキストのデフォルトの書式 */
+  color: #333;
+  /* ◆color：文字色 */
+  font-size: 16px;
+  /* ◆font-size：文字サイズ */
+  font-family: "Yu Gothic Medium", YuGothic, sans-serif;
+  /* ◆font-family：書体 */
+
+  /* ページの背景色：background-color */
+  background-color: beige;
+}
+/*［リンク文字の書式］文字色：親と同じ、下線なし → body書式の下へ移動、WebDesignにリンクを設定 */
+/* ◆文字色は親と同じにしてね→color:inherit*/
+/* ◆text-decoration: none→下線はいらいない */
+/* aタグは、bodyの中に入れる */
+a {
+  color: inherit;
+  text-decoration: none;
+  /* ◆text-decoration：文字の装飾線 */
+}
+/*［class="container"の書式］背景色:白、幅:980px、中央配置、内側左右余白:20px */
+/* .（ドット）でcontainerが表示され、HTMLでつけた名前がでる*/
+/* ◆width・margin-left・margin-right はセットで覚える*/
+.container {
+  background-color: #fff;
+  width: 980px;
+  /* ◆width：ボックスの幅 */
+  margin-left: auto;
+  /* ◆margin-left：ボックスの左余白下（背景外側）*/
+  margin-right: auto;
+  /* ◆margin-right：ボックスの右余白下（背景外側）*/
+  padding-left: 20px;
+  /* ◆padding-left：ボックスの左余白下（背景内側）*/
+  padding-right: 20px;
+  /*◆padding-left：ボックスの右余白下（背景内側） */
+}
+
+/*［WebDesignの書式］
+背景色:青、文字色:白、中央揃え、余白:30px
+→文字サイズ:30px、太字
+→外側下余白:20px */
+header h1 {
+  background-color: blue;
+  color: white;
+  text-align: center;
+  /* ◆text-align：行揃え */
+  padding: 30px;
+  /* ◆padding：ボックスの余白（背景内側） */
+  font-size: 30px;
+  font-weight: bold;
+  /* ◆font-weight：太さ */
+  margin-bottom: 20px;
+}
+/*［メニューの書式］上下ボーダー（線幅:2px、線種:直線、線カラー:任意）、外側下余白:20px、中央揃え、内側上下余白:15px */
+/* ◆header nav:名前をつける、どこにあるかの目印 */
+/* ◆線の入力は、1つずつ入力でもいいが、まとめて入力でもOK */
+header nav {
+  border-top-width: 2px;
+  /* ◆border-top-width：羅線（上）幅 */
+  border-top-style: solid;
+  /* ◆border-top-style：羅線（上）のスタイル*/
+  border-top-color: brown;
+  /* ◆border-top-color：羅線（上）のカラー */
+  border-bottom: 2px solid brown;
+  /* ◆border-bottom：羅線（下）*/
+  margin-bottom: 20px;
+  /* ◆margin-bottom：ボックスの下余白*/
+  text-align: center;
+  /* ◆text-align：行揃え */
+  padding-top: 15px;
+  /* ◆padding-top：ボックスの上余白 */
+  padding-bottom: 15px;
+  /* ◆padding-bottom：ボックスの下余白*/
+}
+
+/*［メニュー項目の書式］１行で表示、隣との間:20px */
+/* ◆header nav ul liの中にあるという意味（目印） */
+/* ◆display:inlineは改行しないの意味 */
+/* leftだけの余白をしてしまうと文字が入っていない側のHOMEにも余白ができてしまうので、両側に均等の数字を入れる */
+/* リンクがついているから下線がでる */
+header nav ul li {
+  display: inline;
+  /* ◆display：表示タイプ */
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/*［メニューのリンク文字のホバー設定］下線表示、不透明度:70% */
+/*◆a:hover→マウスを乗せたときに変化する意味（a:hoverの間はスペース×）*/
+header nav ul li a:hover {
+  text-decoration: underline;
+  /* ◆text-decoration：文字の装飾線*/
+  opacity: 0.7;
+}
+
+/*［HOMEの書式］太字 */
+/* htmlのHomeに名前をつけて */
+header nav ul li a.active {
+  font-weight: bold;
+}
+
+/*［メインビジュアルの書式］下余白:20px */
+/* メインビジュアルのタグがｐだけど、ｐはたくさんあるので、名前をつける※タグとは同じ名前はしないほうがいい */
+p.visual {
+  padding-bottom: 20px;
+}
+
+/*［mainの書式］下余白:30px */
+main {
+  padding-bottom: 30px;
+}
+/*［main sectionの書式］背景色:任意、内側余白:20px、外側下余白:20px */
+main section {
+  background-color: bisque;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+/*［main section h2の書式］文字サイズ:20px、太字、下ボーダー（線幅:2px、線種:直線、線カラー:#333）、文字とボーダー間の余白:5px、外側下余白:10px */
+/* 下線は文字の下 */
+main section h2 {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+  /*paddingとmarginが分からなかったら、カラーをつけるといい！ →→background-color: aquamarine; */
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+/*［main section pの書式］行の高さ:文字サイズの1.5倍 */
+/* ◆line-height:文字サイズの何倍と表示 */
+main section p {
+  line-height: 1.5;
+}
+/*［footerの書式］背景色:黒、文字色:白、中央揃え、高さ:50px */
+/* 高さ（heigh）は使わないので、余白があることが大切 */
+footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding-top: 17px;
+  padding-bottom: 17px;
+}

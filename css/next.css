@@ -1,0 +1,405 @@
+@import url(common.css);
+/* ◆一行目にリンク先を入力する */
+
+/*［セクションの書式］下余白:30px */
+main article section {
+  padding-bottom: 30px;
+}
+
+/*［中見出しの書式］文字色:任意、文字サイズ:18px、背景画像:bg_h2_top.png(bg_h2_bottom.png)、繰り返しなし、背景画像位置:左下(左下)、内側上下余白: 20px、内側左余白:50px、外側下余白:20px */
+main article section h2 {
+  color: #ddcc;
+  font-size: 18px;
+  background-image: url(../img/bg_h2_top.png), url(../img/bg_h2_bottom.png); /* 繰り返しの意味,画像を2ついれる場合は、,urlでもう一つの画像を入れる*/
+  background-repeat: no-repeat; /*繰り返しなし*/
+  background-position: left top, left bottom;
+  /* background-color: blue; :背景色を付けることによって、動かす位置が分かる*/
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  margin-bottom: 20px;
+}
+
+/*［"HOMEに戻る"ボタンの書式］背景色:任意、文字色:白、内側上下余白:15px、内側左右余白:25px、ブロック表示、幅:フィット、外側余白:0 auto、背景画像:arrow.png、繰り返しなし、背景画像サイズ:6px、背景画像位置:右から11px 中央 */
+/* main p.homelink {
+  text-align: center;
+} */
+
+/* ◆aタグ＝インライン上下余白できない */
+/* aタグをボタンとして考えるやり方 */
+main p.homelink a {
+  background-color: blue;
+  color: #fff;
+  padding: 15px 25px;
+  /* 4行で書かなくても１行で記入できる※時計周りで左右同じ数字であれば（上右） */
+  /* display: inline-block; ＝inline-block:書式がすべて有効 */
+  display: block; /* 行にして */
+  width: fit-content; /* 幅をフィットさせる */
+  margin: 0 auto;
+  /* width: fit-content;とmargin: 0 auto;はセットとして考える*/
+  background-image: url(../img/arrow.png);
+  background-repeat: no-repeat; /* 繰り返しなし */
+  background-size: 6px;
+  background-position: right 11px center; /* 右から11pxで中央揃え */
+}
+/*［"HOMEに戻る"ボタンのホバー設定］不透明度:0.7 */
+main p.homelink a:hover {
+  opacity: 0.7;
+}
+
+/*--------------------
+FlexBoxの設定
+--------------------*/
+/* FlexBox、横方向:均等配置 */
+/* 親にFlexBoxをつけなくてはいけない、親がいないので、divタグを作る※HTML */
+section.flex > div {
+  padding-bottom: 20px;
+  line-height: 1.5;
+  display: flex;
+  justify-content: space-between; /* 横方向の揃え方：横方向に均等配置 */
+}
+
+/* 幅:250px */
+section.flex p.left {
+  background-color: bisque;
+  padding: 10px;
+  flex-basis: 26.6%;
+}
+
+/* 幅:650px */
+section.flex .right {
+  background-color: aliceblue;
+  padding: 10px;
+  flex-basis: 69.1%;
+}
+
+/* フロート、文字との余白:15px */
+section.flex .right img {
+  float: right;
+  /* float:後ろにきている文字を横にもっていく */
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+
+/* フロートの解除 */
+section.flex .right p:last-child {
+  clear: both; /*フロートをやめる both：両方*/
+}
+
+/* FlexBox、折り返す、横方向:均等配置、行間隔:20px */
+section.list ul {
+  /* ◆liの親はul */
+  display: flex;
+  flex-wrap: wrap; /* 折り返す */
+  justify-content: space-between;
+  row-gap: 20px; /* 行間隔:20px */
+}
+
+/* 幅サイズ:460px */
+section.list li {
+  border: 1px solid #333;
+  padding: 10px;
+  line-height: 1.5;
+  flex-basis: 48.9%;
+}
+
+/*--------------------
+罫線メニュー
+--------------------*/
+/* FlexBox */
+section.menu ul {
+  display: flex; /* 横並び */
+}
+
+/* 幅比率:1 */
+section.menu li {
+  flex: 1;
+}
+
+/* 文字色:任意、太字、ボーダー（線幅:2px、直線、カラー:文字色と同じ）、ブロック表示、中央揃え、行の高さ:36px */
+section.menu li a {
+  /* 背景色をクリックをするので、aタグにボーダーをつける/インライン */
+  color: red;
+  font-weight: bold;
+  border-top: 2px solid red;
+  border-right: 2px solid red;
+  border-bottom: 2px solid red;
+  /* この字型に線を引く */
+  display: block;
+  text-align: center;
+  line-height: 36px;
+  /* 複数行は line-heightは使わない・ボーダーの内側の高さ*/
+}
+section.menu li:first-child a {
+  /* 右側の線がない為、first-childを付ける*/
+  border-left: 2px solid red;
+}
+
+/* 文字色:白、背景色:線カラーと同じ */
+section.menu li a:hover {
+  color: #fff;
+  background-color: red;
+  /* 選択箇所をマウスで選択するとカラーは反転する */
+}
+/*--------------------
+絶対配置 absolute
+--------------------*/
+/* 絶対配置の基準（相対配置） */
+section.flex {
+  position: relative; /* 移動目的ではなく、絶対配置の基準 */
+}
+
+/* 絶対配置、上:5px、右:0 */
+section.flex p.homelink {
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+/* レスポンシブ スマホ横*/
+@media (max-width: 767px) {
+  section.flex p.homelink {
+    position: unset;
+  }
+}
+@media (max-width: 575px) {
+  section.flex > div {
+    display: block;
+  }
+  section.flex p.left {
+    margin-bottom: 20px;
+  }
+  section.list ul {
+    /* ◆liの親はul */
+    display: block;
+  }
+  section.list li {
+    margin-bottom: 20px;
+  }
+  /* FlexBox */
+  section.menu ul {
+    display: block;
+  }
+  section.menu li a {
+    /* 背景色をクリックをするので、aタグにボーダーをつける/インライン */
+    border-top: unset;
+    border-left: 2px solid red;
+  }
+  section.menu li:first-child a {
+    /* 右側の線がない為、first-childを付ける*/
+    border-top: 2px solid red;
+  }
+}
+/* 見出しグループの設定 */
+/* 見出しの線をつけたいとき */
+hgroup {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+hgroup h3 {
+  font-size: 20px;
+}
+
+hgroup p {
+  font-size: 13px;
+  color: #999;
+}
+/* h3の子要素を作成 */
+hgroup h3::after {
+  content: "";
+  /* ::after:css側で文字が入力できる */
+  display: block;
+  background-color: #333;
+  width: 47px; /* サイズを小さくする */
+  height: 2px; /* 高さ */
+  margin: 3px auto 5px;
+}
+/* テーブルタグの設定 (表組）*/
+table {
+  border: 1px solid #000;
+  width: 50%;
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+th,
+td {
+  border: 1px solid #000;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle; /* セルの位置 テーブルタグのみ */
+}
+caption {
+  caption-side: bottom; /* 下に表示 */
+}
+
+/*--------------------
+transition
+--------------------*/
+section.transition p {
+  margin-bottom: 20px;
+  text-align: center;
+}
+/* シンプルなtransition */
+p.simple a:hover {
+  opacity: 0.5; /* 不透明度 */
+}
+p.simple a {
+  transition: 3s;
+  /* マウスを乗せたら、不透明度になる何秒かけて */
+}
+/* transitionのオプション */
+/* 変化にかける時間 */
+p.option {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  /* マウスを乗せたときに幅が変わる */
+  line-height: 60px;
+  background-color: var(--back-color);
+  /* transitionのオプションを選択 */
+  transition-property: width;
+  transition-duration: 0.5s;
+  /* 幅だけ変わる */
+  transition-timing-function: ease-in;
+  /* マウスを外した時に瞬時に戻る */
+  transition-delay: 0.5s;
+  /* タイミングを遅らせる※0.5秒 */
+}
+p.option:hover {
+  width: 50%;
+  /* マウスを乗せると幅が変わる */
+  border-radius: 50%;
+  /* マウスを乗せたときに楕円形になる */
+  background-color: #ffe4c4;
+  transition: 0.1s;
+  /* マウスを乗せた時だけかかる時間 */
+}
+
+/*--------------------
+タブ切り替え
+--------------------*/
+section.tab ul {
+  display: flex;
+  text-align: center;
+  gap: 10px;
+  color: #fff; /* 分かりやすく文字の色を変更 */
+  position: relative;
+  padding-bottom: 100px;
+}
+section.tab li {
+  flex: 1;
+}
+section.tab label {
+  display: block;
+  line-height: 60px;
+  cursor: pointer; /* マウスを変更 */
+}
+/* neme属性　for="tab1"を設定するとそこだけ変更される*/
+section.tab label[for="tab1"] {
+  background-color: #000; /* 分かりやすく背景を入れる */
+}
+/* neme属性　for="tab1"を設定するとそこだけ変更される*/
+section.tab label[for="tab2"] {
+  background-color: #ff7f50; /* 分かりやすく背景を入れる */
+}
+
+/* neme属性　for="tab1"を設定するとそこだけ変更される*/
+section.tab label[for="tab3"] {
+  background-color: #8a2be2; /* 分かりやすく背景を入れる */
+}
+
+section.tab div {
+  line-height: 100px;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s;
+  height: 0;
+}
+section.tab input#tab1 + div {
+  background-color: #000;
+}
+section.tab input#tab2 + div {
+  background-color: #ff7f50;
+}
+
+section.tab input#tab3 + div {
+  background-color: #8a2be2;
+}
+
+/* ラジオボタンでタブ切り替え */
+/* チェックされたタブの次のタグが表示される */
+section.tab input:checked + div {
+  opacity: 1;
+  height: 100px;
+}
+/* ↑ユーザーが操作しない限りできない操作↑ */
+
+/*--------------------
+@keyframes
+--------------------*/
+section.keyframes p {
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 60px;
+  background-color: #7fffd4;
+}
+/* 表示時のフェードイン */
+/* <!-- ↑ふわぁ～と表示 ※表示0の状態から100で表示 --> */
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+p.fadein {
+  animation: fadein 2s;
+}
+
+/* 点滅表示 */
+p.blink {
+  animation-name: fadein;
+  animation-duration: 1s;
+  animation-iteration-count: infinite; /* くりかえり点滅 */
+  animation-direction: alternate-reverse;
+  /* alternate:0-100・100-0の点滅　交互に繰りかえす */
+  /* reverse：戻る */
+  animation-timing-function: ease-in-out; /* 最初最後もゆっくり */
+  animation-delay: 0.5s;
+  /* 0.5秒後に点滅 */
+}
+/* ホバーで点滅 */
+/* マウスを乗せた時に点滅 */
+p.hoverb:hover {
+  background-color: var(--back-color);
+  animation-name: fadein;
+  animation-duration: 1s;
+  animation-iteration-count: infinite; /* くりかえり点滅 */
+  animation-direction: alternate-reverse;
+  /* alternate:0-100・100-0の点滅　交互に繰りかえす */
+  /* reverse：戻る */
+  animation-timing-function: ease-in-out; /* 最初最後もゆっくり */
+}
+/* クリックで停止 */
+p.hoverb label {
+  display: block;
+}
+
+input#stop:checked + p.hoverb {
+  animation-play-state: paused;
+}
+input#stop {
+  display: none;
+}
+
+/*--------------------
+CSS変数
+--------------------*/
+:root {
+  --back-color: #7fffd4;
+  --hover-color: #ffe4c4;
+}

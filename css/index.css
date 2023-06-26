@@ -1,0 +1,37 @@
+/* 1行目に */
+@import url(common.css);
+
+/*［メインビジュアルの書式］下余白:20px */
+/* メインビジュアルのタグがｐだけど、ｐはたくさんあるので、名前をつける※タグとは同じ名前はしないほうがいい */
+p.visual {
+  padding-bottom: 20px;
+}
+/*［main sectionの書式］背景色:任意、内側余白:20px、外側下余白:20px */
+main section {
+  background-color: bisque;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+/*［main section h2の書式］文字サイズ:20px、太字、下ボーダー（線幅:2px、線種:直線、線カラー:#333）、文字とボーダー間の余白:5px、外側下余白:10px */
+/* 下線は文字の下 */
+main section h2 {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+  /*paddingとmarginが分からなかったら、カラーをつけるといい！ →→background-color: aquamarine; */
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+/*［main section pの書式］行の高さ:文字サイズの1.5倍 */
+/* ◆line-height:文字サイズの何倍と表示 */
+main section p {
+  line-height: 1.5;
+}
+/* レスポンシブ */
+@media (max-width: 767px) {
+  p.visual img {
+    height: 300px;
+    object-fit: cover;
+    object-position: left;
+  }
+}
